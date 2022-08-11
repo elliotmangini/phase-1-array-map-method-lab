@@ -12,5 +12,21 @@ const tutorials = [
 ];
 
 const titleCased = () => {
-  return tutorials
+  return tutorials.map(toProperCase);
 }
+
+const toProperCase = (string) => {
+  let casedString = '';
+  for (let i = 0; i < string.length; i++) {
+    if (i === 0) {
+      casedString += string[i].toUpperCase();
+    } else if (string[i-1] === ' ') {
+      casedString += string[i].toUpperCase();
+    } else {
+      casedString += string[i];
+    }
+  }
+  return casedString;
+}
+
+console.log(toProperCase('what is JSONP?'));
